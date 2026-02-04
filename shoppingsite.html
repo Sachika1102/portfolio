@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./works.css">
+</head>
+<body>
+    <div class="work">
+        <div class="work-info">
+            <h1>ShoppingSite</h1>
+            <p>使用技術：Django/TailwindCSS/SQLite</p>
+            <p>開発ツール：VSCode、GitHub、Render</p>
+            <p>個人開発</p>
+            <div class="screen">
+                <p>実装機能</p>
+                <div class="screen-contents">
+                    <p>・ユーザー管理：新規会員登録、ログイン・ログアウト認証</p>
+                    <p>・商品閲覧：商品一覧表示、詳細表示、ジャンル別絞り込み検索</p>
+                    <p>・ショッピング機能：カートへの追加・削除、購入手続き処理</p>
+                    <p>・マイページ機能：お気に入り登録・解除、過去の購入履歴確認</p>
+                </div>
+            </div>
+            <p>工夫した点・こだわりのポイント</p>
+            <p>MVTアーキテクチャの実践: DjangoのMVT（Model-View-Template）モデルに則って設計し、データ処理と画面表示を明確に分離しました。これによりコードの可読性を高めています。<br>
+                リレーショナルデータの設計: 「ユーザー」「商品」「カート」「注文履歴」といった複数のデータモデルを定義し、それぞれを適切に紐付ける（リレーション構築）ことで、データの整合性を保ちながら複雑なEC機能を実現しました。
+            </p>
+        </div>
+        <div class="work-gallery">
+            <div class="thumbnail-list">
+                <img src="./img/shoppingsite/Productlist.png"
+                    class="thumbnail active"
+                    data-image="./img/shoppingsite/Productlist.png"
+                    alt="商品一覧">
+
+                <img src="./img/shoppingsite/Cart.png" 
+                    class="thumbnail"
+                    data-image="./img/shoppingsite/Cart.png"
+                    alt="カート" >
+
+                <img src="./img/shoppingsite/Purchase.png"
+                    class="thumbnail"
+                    data-image="./img/shoppingsite/Purchase.png"
+                    alt="購入ページ">
+
+                <img src="./img/shoppingsite/favorite.png"
+                    class="thumbnail"
+                    data-image="./img/shoppingsite/favorite.png"
+                    alt="お気に入り" >
+            </div>
+
+            <div class="main-image">
+                <img id="mainImage"
+                    src="./img/shoppingsite/Productlist.png"
+                    alt="商品一覧">
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p>©TsukeyanagiSachika_protfolio</p>
+    </div>
+
+    <script>
+        const thumbnails = document.querySelectorAll(".thumbnail");
+        const mainImage = document.getElementById("mainImage");
+
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener("click", () => {
+                // メイン画像を変更
+                mainImage.src = thumbnail.dataset.image;
+
+                // activeクラス切り替え
+                thumbnails.forEach(t => t.classList.remove("active"));
+                thumbnail.classList.add("active");
+            });
+        });
+    </script>
+
+    
+</body>
+</html>

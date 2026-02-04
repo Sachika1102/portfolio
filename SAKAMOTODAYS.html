@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./works.css">
+</head>
+<body>
+    <div class="work">
+        <div class="work-info">
+            <h1>SAKAMOTO DAYSの模写制作</h1>
+            <p>使用技術：HTML/CSS/JavaScript</p>
+            <p>開発ツール：VSCode、GitHub</p>
+            <p>公式ページサイトURL：<a href="https://sakamotodays.jp/">https://sakamotodays.jp/</a></p>
+            <p>個人開発</p>
+            <div class="screen">
+                <p>画面</p>
+                <div class="screen-contents">
+                    <p>・Topページ</p>
+                    <p>・キャラクター紹介ページ</p>
+                    <p>・キャラクター画像切り替えバージョン</p>
+                    <p>・コミックページ</p>
+                </div>
+            </div>
+            <p>★レイアウトで苦労した点と工夫</p>
+                <p>各キャラクターページの画像配置とテキストレイアウトの調整に特に苦労しました。
+                    中でも主人公・坂本太郎のページは「太っている坂本」と「瘦せている坂本」の2種類のビジュアルがあり、
+                    ボタンで切り替わる仕様の再現に時間をかけました。
+                    また、画像やテキストの位置をわずかにずらすだけでも全体のバランスが崩れてしまうため、
+                    各要素の配置を丁寧に確認しながら、ピクセル単位で調整を行いました。
+                    結果として、公式デザインの雰囲気を保ちながらも、整ったレイアウトに仕上げることができました。
+                </p>
+        </div>
+        <div class="work-gallery">
+            <div class="thumbnail-list">
+                <img src="./img/SAKAMOTODAYS/Home.png"
+                    class="thumbnail active"
+                    data-image="./img/SAKAMOTODAYS/Home.png"
+                    alt="ホーム">
+
+                <img src="./img/SAKAMOTODAYS/SAKAMOTO1.png" 
+                    class="thumbnail"
+                    data-image="./img/SAKAMOTODAYS/SAKAMOTO1.png"
+                    alt="SAKAMOTO1" >
+
+                <img src="./img/SAKAMOTODAYS/SAKAMOTO2.png"
+                    class="thumbnail"
+                    data-image="./img/SAKAMOTODAYS/SAKAMOTO2.png"
+                    alt="SAKAMOTO2">
+
+                <img src="./img/SAKAMOTODAYS/Comics.png"
+                    class="thumbnail"
+                    data-image="./img/SAKAMOTODAYS/Comics.png"
+                    alt="コミック" >
+            </div>
+
+            <div class="main-image">
+                <img id="mainImage"
+                    src="./img/SAKAMOTODAYS/Home.png"
+                    alt="ホーム">
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p>©TsukeyanagiSachika_protfolio</p>
+    </div>
+
+    <script>
+        const thumbnails = document.querySelectorAll(".thumbnail");
+        const mainImage = document.getElementById("mainImage");
+
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener("click", () => {
+                // メイン画像を変更
+                mainImage.src = thumbnail.dataset.image;
+
+                // activeクラス切り替え
+                thumbnails.forEach(t => t.classList.remove("active"));
+                thumbnail.classList.add("active");
+            });
+        });
+    </script>
+
+    
+</body>
+</html>

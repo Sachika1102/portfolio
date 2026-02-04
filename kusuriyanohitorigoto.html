@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./works.css">
+</head>
+<body>
+    <div class="work">
+        <div class="work-info">
+            <h1>薬屋のひとりごとの模写制作</h1>
+            <p>使用技術：HTML/CSS/JavaScript</p>
+            <p>開発ツール：VSCode、GitHub</p>
+            <p>公式ページサイトURL：<a href="https://kusuriyanohitorigoto.jp/">https://kusuriyanohitorigoto.jp/</a></p>
+            <p>個人開発</p>
+            <div class="screen">
+                <p>画面</p>
+                <div class="screen-contents">
+                    <p>・Topページ</p>
+                    <p>・キャラクター紹介ページ</p>
+                    <p>・キャラクター詳細ページ</p>
+                    <p>・ムービーページ</p>
+                </div>
+            </div>
+            <p>★レイアウトで苦労した点と工夫</p>
+            <p>画面幅によってレイアウトが崩れやすく、特に画像の縦横比の維持やトリミング処理に苦労しました。
+                どのデバイスでも自然に見えるよう、細かなレスポンシブ調整を実施。
+                また、テキストと画面の距離、ボタンや見出しの余白をミリ単位で調整し、視認性とデザイン性の両立を意識しました。
+            </p>
+        </div>
+        <div class="work-gallery">
+            <div class="thumbnail-list">
+                <img src="./img/kusuriyanohitorigoto/Home.png"
+                    class="thumbnail active"
+                    data-image="./img/kusuriyanohitorigoto/Home.png"
+                    alt="ホーム">
+
+                <img src="./img/kusuriyanohitorigoto/Charactor.png" 
+                    class="thumbnail"
+                    data-image="./img/kusuriyanohitorigoto/Charactor.png"
+                    alt="キャラクター一覧" >
+
+                <img src="./img/kusuriyanohitorigoto/character1.png"
+                    class="thumbnail"
+                    data-image="./img/kusuriyanohitorigoto/character1.png"
+                    alt="キャラクターページ">
+
+                <img src="./img/kusuriyanohitorigoto/Movie.png"
+                    class="thumbnail"
+                    data-image="./img/kusuriyanohitorigoto/Movie.png"
+                    alt="YouTube" >
+            </div>
+
+            <div class="main-image">
+                <img id="mainImage"
+                    src="./img/kusuriyanohitorigoto/Home.png"
+                    alt="ホーム">
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p>©TsukeyanagiSachika_protfolio</p>
+    </div>
+
+    <script>
+        const thumbnails = document.querySelectorAll(".thumbnail");
+        const mainImage = document.getElementById("mainImage");
+
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener("click", () => {
+                // メイン画像を変更
+                mainImage.src = thumbnail.dataset.image;
+
+                // activeクラス切り替え
+                thumbnails.forEach(t => t.classList.remove("active"));
+                thumbnail.classList.add("active");
+            });
+        });
+    </script>
+
+    
+</body>
+</html>
